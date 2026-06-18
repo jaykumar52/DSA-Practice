@@ -27,9 +27,8 @@ public:
                 if (q.front()->right!=nullptr) q.push(q.front()->right);
                 q.pop();
             }
-            ans.push_back(currLevel);
+            ans.insert(ans.begin(), currLevel);
         }
-        reverse(ans.begin(), ans.end());
         return ans;
     }
 };
