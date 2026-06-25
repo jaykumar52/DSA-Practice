@@ -10,8 +10,7 @@ public:
                 if ((bitA|bitB)==0) ans++;
             }
             else{
-                if (bitA&bitB) ans+=2;
-                else if (bitA|bitB) ans++;
+                ans+=bitA+bitB;
             }
         }
         return ans;
