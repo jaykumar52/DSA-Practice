@@ -1,11 +1,11 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        unordered_map<char, int> map;
+        int arr[26]={0};
         int ans=-1;
-        for (char c : s) map[c]++;
+        for (char c : s) arr[c-'a']++;
         for (int i=0; i<s.size(); i++){
-            if (map[s[i]]==1){
+            if (arr[s[i]-'a']==1){
                 ans=i;
                 break;
             }
