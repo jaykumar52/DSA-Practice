@@ -10,6 +10,8 @@ public:
         int x;
         int y;
         visited[0][0]=true;
+        int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+        int dy[] = {-1, 0, 1, -1, 1, -1, 0, 1};
         while (!q.empty()){
             int size=q.size();
             while (size--){
@@ -17,37 +19,11 @@ public:
                 y=q.front().second;
                 if (x==n-1 && y==n-1) return dist;
 
-                if (y<n-1 && grid[x][y+1]==0 && !visited[x][y+1]){
-                    q.push({x,y+1});
-                    visited[x][y+1]=true;
-                } 
-                if (y<n-1 && x>0 && grid[x-1][y+1]==0 && !visited[x-1][y+1]){
-                    q.push({x-1, y+1});
-                    visited[x-1][y+1]=true;
-                }
-                if (y<n-1 && x<n-1 && grid[x+1][y+1]==0 && !visited[x+1][y+1]){
-                    q.push({x+1, y+1});
-                    visited[x+1][y+1]=true;
-                }
-                if (x>0 && grid[x-1][y]==0 && !visited[x-1][y]){
-                    q.push({x-1, y});
-                    visited[x-1][y]=true;
-                }
-                if (x<n-1 && grid[x+1][y]==0 && !visited[x+1][y]){
-                    q.push({x+1, y});
-                    visited[x+1][y]=true;
-                }
-                if (y>0 && x>0 && grid[x-1][y-1]==0 && !visited[x-1][y-1]){
-                    q.push({x-1, y-1});
-                    visited[x-1][y-1]=true;
-                }
-                if (y>0 && grid[x][y-1]==0 && !visited[x][y-1]){
-                    q.push({x, y-1});
-                    visited[x][y-1]=true;
-                }
-                if (y>0 && x<n-1 && grid[x+1][y-1]==0 && !visited[x+1][y-1]){
-                    q.push({x+1, y-1});
-                    visited[x+1][y-1]=true;
+                for (int i=0; i<8; i++){
+                    if (x+dx[i]>=0 && x+dx[i]<n && y+dy[i]>=0 && y+dy[i]<n && grid[x+dx[i]][y+dy[i]]==0 && !visited[x+dx[i]][y+dy[i]]){
+                        q.push({x+dx[i], y+dy[i]});
+                        visited[x+dx[i]][y+dy[i]]=true;
+                    }
                 }
                 q.pop();
             }
