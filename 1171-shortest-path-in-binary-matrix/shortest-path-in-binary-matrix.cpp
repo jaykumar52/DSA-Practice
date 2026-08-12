@@ -9,7 +9,7 @@ public:
         else return -1;
         int x;
         int y;
-
+        visited[0][0]=true;
         while (!q.empty()){
             int size=q.size();
             while (size--){
