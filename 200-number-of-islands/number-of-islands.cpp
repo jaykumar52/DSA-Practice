@@ -20,10 +20,10 @@ public:
                         q.pop();
                         int dx[4]={0,0,-1,1};
                         int dy[4]={-1,1,0,0};
-                        for (int i=0; i<4; i++){
-                            if (x+dx[i]>=0 && x+dx[i]<m && y+dy[i]>=0 && y+dy[i]<n && grid[x+dx[i]][y+dy[i]]=='1'){
-                                grid[x+dx[i]][y+dy[i]]='0';
-                                q.push({x+dx[i], y+dy[i]});
+                        for (int k=0; k<4; k++){
+                            if (x+dx[k]>=0 && x+dx[k]<m && y+dy[k]>=0 && y+dy[k]<n && grid[x+dx[k]][y+dy[k]]=='1'){
+                                grid[x+dx[k]][y+dy[k]]='0';
+                                q.push({x+dx[k], y+dy[k]});
                             }
                         }
                 
