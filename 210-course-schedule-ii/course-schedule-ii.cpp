@@ -4,11 +4,9 @@ public:
         vector<int> ans;
         vector<int> inDegree(numCourses, 0);
         vector<vector<int>> prereq(numCourses);
-        for (vector<int> temp : prerequisites){
+        for (const auto &temp : prerequisites){
             prereq[temp[1]].push_back(temp[0]);
-        }
-        for (int i=0; i<numCourses; i++){
-            for (int num : prereq[i]) inDegree[num]++;
+            inDegree[temp[0]]++;
         }
         queue<int> q;
         for (int i=0; i<numCourses; i++){
