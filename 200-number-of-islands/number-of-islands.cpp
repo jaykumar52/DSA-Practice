@@ -35,8 +35,8 @@ public:
             }
             islands++;
             if (one){
-                for (int i=0; i<m; i++){
-                    for (int j=0; j<n; j++){
+                for (int i=0; i<m && q.empty(); i++){
+                    for (int j=0; j<n && q.empty(); j++){
                         if ( q.empty() && grid[i][j]=='1' && !visited[i][j] ) {
                             q.push({i,j});
                             visited[i][j]=true;
