@@ -11,7 +11,7 @@ public:
             }
         }
 
-        unordered_map<string, int> map;
+        unordered_map<int, int> map;
         int ans=0;
 
         for (const auto& [r1, c1] : ones1){
@@ -19,7 +19,7 @@ public:
                 int dr=r1-r2;
                 int dc=c1-c2;
 
-                string key=to_string(dr)+"_"+to_string(dc);
+                int key=(dr+100)*1000+(dc+100);
                 map[key]++;
 
                 ans=max(ans, map[key]);
